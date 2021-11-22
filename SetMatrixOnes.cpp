@@ -36,8 +36,8 @@ void setMatrixOnes(vector<vector<int>> &mat, int n, int m)
 {
     // Write your code here.
     int row =n, col=m;
-    vector<int> rowNumber (n,false);
-    vector<int> colNumber(m,false);
+    vector<int> rowNumber (row,false);
+    vector<int> colNumber(col,false);
     
     for(int i=0;i<row;i++){
         for(int j=0;j<col;j++){
