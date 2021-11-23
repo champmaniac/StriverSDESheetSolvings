@@ -19,7 +19,7 @@ pair<int,int> missingAndRepeating(vector<int> &arr, int n){
 	}
 
 	// sum of the numbers from 1 to n
-	int actualSum=n*(n+1)/2;
+	int actualSum= n*(n+1)/2;
 	m=actualSum-(currSum-r);
 	pair<int,int> ans;
 	ans.first=m;
@@ -53,6 +53,40 @@ pair<int,int> missingAndRepeating(vector<int> &arr, int n){
 	pair<int,int> ans;
 	ans.first=m;
 	ans.second=r;
+
+	return ans;
+}
+
+
+// Most Optimized TC O(N) SC(1)
+
+#include<algorithm>
+pair<int,int> missingAndRepeating(vector<int> &arr, int n){
+	int rep,miss;
+	for(int i=0;i<n;i++){
+		if(arr[abs(arr[i])-1]>0)
+		{
+			arr[abs(arr[i])-1]=-arr[abs(arr[i])-1];
+		}
+		// if arr[i] is negative then it's the repeating number
+		else
+		{
+			rep =abs(arr[i]);
+		}
+	}
+
+	// for calculating the missing number
+	for(int i=0;i<n;i++)
+	{
+		if(arr[i]>0)
+		{
+			miss=i+1;
+			break;
+		}
+	}
+	pair<int,int> ans;
+	ans.first=miss;
+	ans.second=rep;
 
 	return ans;
 }
