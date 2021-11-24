@@ -38,7 +38,7 @@ vector<int> majorityElementII(vector<int> &arr)
     return ans;
 }
 
-// Best Optimized sol TC O(N) SC O(1)
+// Best Optimized sol TC O(N) SC O(1) Boyer-Moore majority vote algo
 
 vector<int> majorityElementII(vector<int> &nums)
 {
