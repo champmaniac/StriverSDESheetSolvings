@@ -1,27 +1,19 @@
+// Brute Force TC O(N^4) SC O(1)
 #include<bits/stdc++.h>
-string fourSum(vector<int> nums, int target, int n) {
-    sort(nums.begin(),arr.end());
-    set<vector<int>> st;
-    for(int i=0;i<n;i++)
+string fourSum(vector<int> arr, int target, int n) {
+    for(int i=0;i<n-3;++i)
     {
-        for(int j=i+1;j<n;j++)
+        for(int j=i+1;j<n-2;++j)
         {
-            for(int k=j+1;k<n;k++)
+            for(int k=j+1;k<n-1;++k)
             {
-                int x = (long long) target-(long long)nums[i]-(long long)nums[j]-(long long)nums[k];
-                if(binary_search(nums.begin()+k+1,nums.end(),x))
+                for(int l=k+1;l<n;++l)
                 {
-                    vector<int> v;
-                    v.push_back(nums[i]);
-                    v.push_back(nums[j]);
-                    v.push_back(nums[k]);
-                    v.push_back(x);
-                    sort(v.begin(),v.end());
-                    st.insert(v);
+                    if(arr[i]+arr[j]+arr[k]+arr[l]==target)
+                        return "Yes";
                 }
             }
         }
     }
-    vector<vector<int>> res(st.begin(),st.end());
-    return
+    return "No";
 }
