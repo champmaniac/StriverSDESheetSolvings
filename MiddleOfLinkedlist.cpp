@@ -1,5 +1,5 @@
 // Brute Force 
-// TC O(N) SC O(N)
+// TC O(N) SC O(1)
 Node *findMiddle(Node *head) {
     Node* temp = head;
     int n =0;
