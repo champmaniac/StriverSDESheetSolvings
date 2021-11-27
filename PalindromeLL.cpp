@@ -1,3 +1,29 @@
+// Brute Force using Stack 
+// TC O(N) SC O(N)
+#include<stack>
+bool isPalindrome(LinkedListNode<int> *head) {
+    stack<int> st;
+    LinkedListNode<int> * temp = head;
+
+    while(temp!=NULL)
+    {
+        st.push(temp->data);
+        temp = temp->next;
+    }
+
+    while(head!=NULL)
+    {
+        int top = st.top();
+        st.pop();
+        if(top!=head->data)
+            return false;
+        head=head->next;
+    }
+    return true;
+}
+
+// Optimized code by finding reverseLinkedList and Middle of LinkedList
+// TC O(N) SC O(1)
 LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head)
 {
     LinkedListNode<int> * prev = NULL;
