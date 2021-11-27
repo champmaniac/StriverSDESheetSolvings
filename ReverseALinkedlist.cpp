@@ -27,7 +27,7 @@ LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head)
     {
         return head;
     }
-    LinkedListNode<int> *newHead = reverseLinkedList(haed->next);
+    LinkedListNode<int> *newHead = reverseLinkedList(head->next);
     head->next->next =head;
     head->next = NULL;
     return newHead;
