@@ -38,3 +38,19 @@ int findIntersection(Node *firstHead, Node *secondHead)
     }
     return -1;
 }
+
+// Most Optimized
+// TC O(N) SC O(1)
+int findIntersection(Node *firstHead, Node *secondHead){
+    if(firstHead==NULL || secondHead ==NULL)
+        return NULL;
+    Node* a = firstHead;
+    Node* b = secondHead;
+
+    while(a!=b)
+    {
+        a=a==NULL? secondHead:a->next;
+        b=b==NULL? firstHead :b->next;
+    }
+    return a;
+}
