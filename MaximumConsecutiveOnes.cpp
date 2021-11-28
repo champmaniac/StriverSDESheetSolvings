@@ -1,3 +1,5 @@
+// Two pointers approach
+// TC O(N) SC O(1)
 int longestSubSeg(vector<int> &arr , int n, int k){
     // Write your code here.
     int i =0,j;
