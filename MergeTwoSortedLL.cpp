@@ -26,7 +26,7 @@
 
 Node<int>* mergeTwoLists(Node<int>* first, Node<int>* second)
 {
-   N if(first==NULL) return second;
+    if(first==NULL) return second;
     if(second==NULL) return first;
     if(first->data < second->data)
     {
