@@ -1,4 +1,4 @@
-//
+// Optimized
 // TC O(N) SC O(1)
 long getTrappedWater(long *arr, int n){
     // Write your code here.
