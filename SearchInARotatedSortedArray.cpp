@@ -1,3 +1,16 @@
+// Brute Force
+// TC O(N) SC O(1)
+
+int search(int*arr,int n,int key)
+{
+	for(int i=0;i<n;++i)
+	{
+		if(arr[i]==key)
+			return i;
+	}
+	return -1;
+}
+
 // Optimzed way using Binary Search
 // TC O(logN) SC O(1)
 
