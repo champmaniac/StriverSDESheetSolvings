@@ -14,7 +14,7 @@ int search(int*arr,int n,int key)
 // Optimzed way using Binary Search
 // TC O(logN) SC O(1)
 
-int search(int*arr,int n,int key)
+int search(int*arr,int n,int key) 
 {
 	int start =0,end=n-1;
 	while(start<=end)
