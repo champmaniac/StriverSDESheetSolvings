@@ -22,3 +22,26 @@ int countSetBits(int n) {
     }
     return count;
 }
+
+// Optimized
+// TC O(logN) SC O(1)
+int countSetBits(int n) {
+    int mod = (int)1e9+7;
+    n++;
+    int powerOf2=2;
+    int count=n/2;
+    while(powerOf2<=n)
+    {
+        int totalPairs = n/powerOf2;
+        count = (count+((totalPairs/2)*powerOf2)%mod)%mod;
+        if(totalPairs&1)
+        {
+            count=(count+n%powerOf2)%mod;
+        }
+        // Next power of 2
+        powerOf2<<=1;
+
+    }
+    count%=mod;
+    return count;
+}
