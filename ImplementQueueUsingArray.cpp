@@ -30,7 +30,7 @@ public:
 
 	int dequeue(){
 		// Check if the queue is empty
-		if(isEmpty)
+		if(isEmpty())
 			return -1;
 		int ans =q[qfront];
 		qfront++;
