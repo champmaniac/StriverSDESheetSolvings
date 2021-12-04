@@ -3,18 +3,15 @@
 
 #include<stack>
 class Queue {
-    // Define the data members(if any) here.
     stack<int>*s1;
     stack<int>*s2;
     public:
     Queue() {
-        // Initialize your data structure here.
         s1 = new stack<int>();
         s2 = new stack<int>();
     }
 
     void enQueue(int val) {
-        // Implement the enqueue() function.
         // Moving all elements from s1 to s2
         while(!s1->empty()){
             // To insert a value,first whole of the s1 is transfered to s2 and then new element is inserted in s1
@@ -32,7 +29,6 @@ class Queue {
     }
 
     int deQueue() {
-        // Implement the dequeue() function.
         // If first stack is empty
         if(s1->empty())
             return -1;
@@ -43,7 +39,6 @@ class Queue {
     }
 
     int peek() {
-        // Implement the peek() function here.
         // Returning the front element of the queue
         if(s1->empty())
             return -1;
@@ -51,7 +46,6 @@ class Queue {
     }
 
     bool isEmpty() {
-        // Implement the isEmpty() function here.
         // Whether the queue is empty or not.
         return (s1->empty());
     }
