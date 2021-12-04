@@ -2,16 +2,16 @@
 #include <bits/stdc++.h>
 class Stack {
    public:
-    queue<int>*q1,*q2;
+    queue<int>*q;
+    //Constructor
     Stack() {
-        q1 = new queue<int>();
-        q2 = new queue<int>(); 
+        q = new queue<int>();
     }
 
     /*----------------- Public Functions of Stack -----------------*/
 
     int getSize() {
-        return q1->size();
+        return q->size();
     }
 
     bool isEmpty() {
@@ -19,29 +19,24 @@ class Stack {
     }
 
     void push(int data) {
-        // Enqueue new element to q2
-        q2->push(data);
-
-        // Enqueue all the elements of q1 into q2
-        while(q1->size()>0)
+        // Get the size of the queue
+        int size = q->size();
+        // Enqueue the new data to the queue
+        q->push(data);
+        // Make the new data front of the queue
+        for(int i=0;i<size;i++)
         {
-            q2->push(q1->front());
-            q1->pop();
+            q->push(q->front());
+            q->pop();
         }
-
-        // swap q1 and q2
-        queue<int>* temp = q1;
-        q1=q2;
-        q2=temp;
     }
 
     int pop() {
-        //if empty return -1
         if(isEmpty())
             return -1;
-        //simpy dequeue from the queue q1
-        int ans = q1->front();
-        q1->pop();
+
+        int ans=q->front();
+        q->pop();
         return ans;
     }
 
@@ -49,7 +44,7 @@ class Stack {
         if(isEmpty())
             return -1;
 
-        int ans = q1->front();
+        int ans=q->front();
         return ans;
     }
 };

@@ -3,6 +3,7 @@
 class Stack {
    public:
     queue<int>*q1,*q2;
+    //Constructor
     Stack() {
         q1 = new queue<int>();
         q2 = new queue<int>(); 
