@@ -41,7 +41,7 @@ vector<int> nextGreater(vector<int> &arr, int n) {
             ans[i]=-1;
         else
             ans[i]=s.top();
-        a.push(arr[i]);
+        s.push(arr[i]);
     }
     return ans;
 }
