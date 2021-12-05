@@ -1,3 +1,5 @@
+// Brute force giving the optimal answer using stack here
+// TC O(N) SC O(N)
 bool isValidParenthesis(string s)
 {
     stack<char>st;
