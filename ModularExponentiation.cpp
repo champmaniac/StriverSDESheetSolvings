@@ -7,3 +7,16 @@ int modularExponentiation(int x, int n, int m) {
 	}
 	return ans;
 }
+
+// Recursive Approach
+// TC O(logN) SC O(logN)
+int modularExponentiation(int x, int n, int m) {
+	// Base case
+	if(n==0)
+		return 1;
+	int ans = modularExponentiation(x,n/2,m);
+	if(n%2==0)
+		return (1ll*ans*ans)%m;
+	else
+		return (1ll*(1ll*ans*ans)%m*x%m)%m;
+}
