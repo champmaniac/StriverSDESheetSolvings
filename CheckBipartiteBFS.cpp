@@ -51,7 +51,7 @@ bool isGraphBirpatite(vector<vector<int>> &edges) {
 
 
 
-// Another method creating a function
+// Another method by creating a function bfs
 
 bool bfs(int src, vector<vector<int>> &graph,vector<int> &color){
         color[src]=1;
