@@ -48,3 +48,35 @@ bool isGraphBirpatite(vector<vector<int>> &edges) {
 	}
 	return true;
 }
+
+
+
+// Another method creating a function
+
+bool bfs(int src, vector<vector<int>> &graph,vector<int> &color){
+        color[src]=1;
+        queue<int> q;
+        q.push(src);
+        while(!q.empty()){
+            int u = q.front();
+            q.pop();
+            for(auto it: graph[u]){
+                if(color[it]==-1)
+                {
+                    color[it]=!color[u];
+                    q.push(it);
+                }
+                else if(color[it]==color[u]) return false;
+            }
+        }
+        return true;
+    }
+bool isBipartite(vector<vector<int>>& graph) {
+        int v = graph.size();
+        vector<int> color(v,-1);
+        for(int i=0;i<v;i++){
+            if(color[i]==-1)
+                if(!bfs(i,graph,color)) return false;
+        }
+        return true;
+    }
