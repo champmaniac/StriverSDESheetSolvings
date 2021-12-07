@@ -1,3 +1,5 @@
+// TC O(N+E)=O(N) SC O(N+E)=O(N)
+
 #include <bits/stdc++.h>
 bool isGraphBirpatite(vector<vector<int>> &edges) {
 	int n = edges.size();

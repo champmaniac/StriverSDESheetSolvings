@@ -1,3 +1,5 @@
+// TC O(N+E)=O(N) SC O(N+E)=O(N)
+
 void dfs(int node, vector<int> &vis, vector<int> &storeDfs, vector<int> adj[]){
         storeDfs.push_back(node);
         vis[node]=1;

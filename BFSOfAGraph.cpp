@@ -1,3 +1,5 @@
+// TC O(N+E)=O(N) SC O(N+E)=O(N)
+
 void bfs(int src, vector<int>&vis, vector<int> &storeBfs, vector<int> adj[]){
     queue<int> q;
     q.push(src);

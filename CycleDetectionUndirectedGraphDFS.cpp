@@ -1,3 +1,5 @@
+// TC O(N+E)=O(N) SC O(N+E)=O(N)
+
 bool isCycle(int node,vector<vector<int>>&graph,vector<bool> &visited, int parent){
     visited[node]=true;
     for(int adj:graph[node]){
