@@ -27,6 +27,7 @@ bool cycleBFS(int V, vector<int> adj[]){
 				q.push(it);
 		}
 	}
+	// if elements in the topo sort equals to the number of vertices then graph is DAG therefore, no cycle
 	if(count==V) return false;
 	else return true;
 }
