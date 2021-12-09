@@ -1,4 +1,4 @@
-// TC O(N+E) SC O(N)
+// TC O(N+E) SC O(N+E)+O(N)+O(N)
  
 vector<int> topoSort(int N, vector<int> adj[]){
 	// Queue to push the data in FIFO
@@ -15,6 +15,7 @@ vector<int> topoSort(int N, vector<int> adj[]){
 		if(indegree[i]==0)
 			q.push(i);
 	}
+	//kahn's algorithm or bfs
 	// Take a vector topo to store the topological sort
 	vector<int> topo;
 	while(!q.empty()){
