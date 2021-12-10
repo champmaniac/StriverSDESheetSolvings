@@ -1,12 +1,15 @@
 void shortestPath(int v,int src, vector<int> adj[]){
+	// create a distance array and initialize it with infinity
 	int dis[v];
 	for(int i=0;i<v;i++)
 		dis[i]=INT_MAX;
 
+	// distance of source from source will be 0
 	dis[src]=0;
 	queue<int> q;
 	q.push(src);
 
+	// update if path is smaller
 	while(!q.empty()){
 		int node = q.front();
 		q.pop();
