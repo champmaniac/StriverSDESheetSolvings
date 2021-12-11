@@ -2,7 +2,7 @@ void dijkstra(int v, int src, vector<pair<int,int>> &adj[]){
 	vector<int> dist(v,INT_MAX);
 	priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
 	dist[src]=0;
-	pq.push(src);
+	pq.push(make_pair(0, src));
 
 	while(!pq.empty()){
 		int node = pq.top().second;
