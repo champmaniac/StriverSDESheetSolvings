@@ -1,3 +1,5 @@
+ // Brute Force
+// TC O(N^2) SC O(N)
 void prims(int v,int src,vector<pair<int,int>>&adj[]){
 	// Declare three arrays and initialize them
 	int keys[v];
@@ -40,6 +42,53 @@ void prims(int v,int src,vector<pair<int,int>>&adj[]){
 			}
 		}
 	}
+
+	// print the nodes
+	for(int i=0;i<v;i++){
+		cout<<parent[i]<<"-"<<endl;
+	}
+}
+
+
+// Optimized approach 
+// TC O(N+E)+O(NlogN) SC O(N)
+void prims(int v,int src,vector<pair<int,int>>&adj[]){
+	// Declare three arrays and initialize them
+	int keys[v];
+	int parent=[v];
+	bool setMST[v];
+	for(int i=0;i<v;i++){
+		keys[i]=INT_MAX;
+		setMST[i]=false;
+	}
+
+	priority_queue<pair<int,int>, vector<pair<int,int>> , greater<pair<int,int>>> pq;
+	// Intialize key of source as o and the parent of source -1
+	keys[src]=0;
+	parent[src]=-1;
+	// will contain pair of(key,index)
+	pq.push(make_pair(0,0));
+
+	while(!pq.empty()){
+		int index = pq.top().second;
+		pq.pop();
+
+		setMST[index]=true;
+
+		// go to all of its adjacent nodes and find out which oe has the minimum wt and is not added in the mst
+		for(auto &it: adj[index]){
+			int node = it.first;
+			int wt = it.second;
+			// update the key if it has the minimum weight and is not added in mst  and update the parent
+			if(keys[node]>wt && setMST[node]==false)
+			{
+				keys[node]=wt;
+				parent[node]=index;
+			}
+		}
+	}
+
+
 
 	// print the nodes
 	for(int i=0;i<v;i++){
