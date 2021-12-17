@@ -10,7 +10,7 @@ void dfs(TreeNode* root,vector<int> &inOrder){
 
     
 }
-vector<int> preorderTraversal(TreeNode* root)
+vector<int> inorderTraversal(TreeNode* root)
 {
     vector<int> inOrder;
     dfs(root,inOrder);
