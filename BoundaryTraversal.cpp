@@ -20,7 +20,7 @@ class Solution{
 		}
 
 		for(int i=st.size()-1;i>=0;--i){
-			res.push_back(temp[i]);
+			res.push_back(st[i]);
 		}
 	}
 
