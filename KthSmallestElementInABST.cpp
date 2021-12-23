@@ -15,3 +15,20 @@ public:
         return res[k-1];
     }
 };
+
+// Time Optimized using Inorder
+// TC O(N) SC O(N)
+class Solution {
+public:
+    void inOrder(TreeNode* root,vector<int>&res){
+        if(root==NULL) return;
+        inOrder(root->left,res);
+        res.push_back(root->val);
+        inOrder(root->right,res);
+    }
+    int kthSmallest(TreeNode* root, int k) {
+        vector<int> res;
+        inOrder(root,res);
+        return res[k-1];
+    }
+};
