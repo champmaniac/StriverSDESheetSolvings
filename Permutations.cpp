@@ -1,18 +1,51 @@
+// Approach 1
+// TC O(n!*n) SC O(N)+O(N)
 class Solution {
 public:
     vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>> perms;
-        permute(nums,0,perms);
-        return perms;
+        vector<vector<int>> ans;
+        vector<int> ds;
+        int freq[nums.size()];
+        for(int i=0;i<nums.size();i++) freq[i]=0;
+        recurPermute(ds,nums,ans,freq);
+        return ans;
     }
-    void permute(vector<int> nums,int i,vector<vector<int>> &perms){
-        if(i==nums.size())
-            perms.push_back(nums);
-        else{
-            for(int j=i;j<nums.size();j++){
-                swap(nums[i],nums[j]);
-                permute(nums,i+1,perms);
-            }
+    void recurPermute(vector<int> &ds,vector<int> &nums,vector<vector<int>> &ans,int freq[]){
+        if(ds.size()==nums.size()){
+            ans.push_back(ds);
+            return;
         }
+        for(int i=0;i<nums.size();i++){
+            if(!freq[i]){
+                ds.push_back(nums[i]);
+                freq[i]=1;
+                recurPermute(ds,nums,ans,freq);
+                freq[i]=0;
+                ds.pop_back();
+            }
+        }      
+    }
+};
+
+// Approach 2
+// TC O(n!*n) SC O(N)
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        recurPermute(0,nums,ans);
+        return ans;
+    }
+    void recurPermute(int ind, vector<int> &nums,vector<vector<int>> &ans){
+        if(ind ==nums.size()){
+            ans.push_back(nums);
+            return;
+        }
+        for(int i=0;i<nums.size();i++){
+            swap(nums[ind],nums[i]);
+            recurPermute(ind+1,nums,ans);
+            swap(nums[ind],nums[i]);
+        }
+        
     }
 };
