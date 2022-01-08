@@ -1,36 +1,33 @@
 // Backtracking /Recursion
 // TC O(N) SC O(N)
 
-bool isPalindrome(string s, int start,int end)
-{
-    while(start<=end)
-    {
-        if(s[start++]!=s[end--])
-            return false;
+class Solution {
+public:
+    vector<vector<string>> partition(string s) {
+        vector<vector<string>> res;
+        vector<string> path;
+        solve(0,s,path,res);
+        return res;
     }
-    return true;
-}
-void partitionHelper(int idx, string &s,vector<string>&path,vector<vector<string>> &ans){
-    int n = s.size();
-    if(idx==n){
-        ans.push_back(path);
-        return;
-    }
-
-    for(int i=idx;i<n;i++){
-        if(isPalindrome(s,idx,i)){
-            path.push_back(s.substr(idx,i-idx+1));
-            partitionHelper(i+1,s,path,ans);
-            path.pop_back();
+    void solve(int index,string s,vector<string> &path,vector<vector<string>> &res){
+        if(index==s.size()){
+            res.push_back(path);
+            return;
+        }
+        for(int i=index;i<s.size();i++){
+            if(isPalindrome(s,index,i)){
+                path.push_back(s.substr(index,i-index+1));
+                solve(i+1,s,path,res);
+                path.pop_back();
+            }
         }
     }
-}
-
-vector<vector<string>> partition(string &s) 
-{
-    // Write your code here.
-    vector<vector<string>> ans;
-    vector<string> path;
-    partitionHelper(0,s,path,ans);
-    return ans;
-}
+    
+    bool isPalindrome(string s, int start, int end){
+        while(start<=end){
+            if(s[start++]!=s[end--])
+                return false;
+        }
+        return true;
+    }
+};
