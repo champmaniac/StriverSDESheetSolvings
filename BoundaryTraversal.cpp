@@ -1,52 +1,71 @@
-class Solution {
+class Solution
+{
 public:
-    bool isleaf(Node* root){
-    	return !root->left && !root->right;
-    }
+	bool isleaf(Node *root)
+	{
+		return !root->left && !root->right;
+	}
 
-	void addLeftBoundary(Node* root, vector<int> &res){
-		Node* curr = root->left;
-		while(curr){
-    		if(!isleaf(curr)) res.push_back(curr->data);
-    		if(curr->left) curr = curr->left;
-    		else curr=curr->right;
+	void addLeftBoundary(Node *root, vector<int> &res)
+	{
+		Node *curr = root->left;
+		while (curr)
+		{
+			if (!isleaf(curr))
+				res.push_back(curr->data);
+			if (curr->left)
+				curr = curr->left;
+			else
+				curr = curr->right;
 		}
 	}
 	// reverse right boundary
-	void addRightBoundary(Node* root, vector<int> &res){
-		Node* curr = root->right;
+	void addRightBoundary(Node *root, vector<int> &res)
+	{
+		Node *curr = root->right;
 		vector<int> st;
-		while(curr){
-			if(!isleaf(curr)) st.push_back(curr->data);
-			if(curr->right) curr=curr->right;
-			else curr = curr->left;
+		while (curr)
+		{
+			if (!isleaf(curr))
+				st.push_back(curr->data);
+			if (curr->right)
+				curr = curr->right;
+			else
+				curr = curr->left;
 		}
 
-		for(int i=st.size()-1;i>=0;--i){
+		for (int i = st.size() - 1; i >= 0; --i)
+		{
 			res.push_back(st[i]);
 		}
 	}
 
-	void addLeaves(Node* root,vector<int> &res){
-		if(isleaf(root)){
+	void addLeaves(Node *root, vector<int> &res)
+	{
+		if (isleaf(root))
+		{
 			res.push_back(root->data);
 			return;
 		}
-		if(root->left) addLeaves(root->left,res);
-		if(root->right) addLeaves(root->right,res);
+		if (root->left)
+			addLeaves(root->left, res);
+		if (root->right)
+			addLeaves(root->right, res);
 	}
-    vector <int> boundary(Node *root)
-    {
-        vector<int> res;
-		if(!root) return res;
+	vector<int> boundary(Node *root)
+	{
+		vector<int> res;
+		if (!root)
+			return res;
 
-		if(!isleaf(root)) res.push_back(root->data);
+		if (!isleaf(root))
+			res.push_back(root->data);
 		// adding left boundary
-		addLeftBoundary(root,res);
+		addLeftBoundary(root, res);
 		// add leaves
-		addLeaves(root,res);
+		addLeaves(root, res);
 		// adding reversed right boundary
-		addRightBoundary(root,res);
-// 		return res;
-    }
+		addRightBoundary(root, res);
+		// 		return res;
+	}
 };
