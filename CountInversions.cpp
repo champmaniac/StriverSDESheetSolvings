@@ -6,5 +6,5 @@ long long getInversions(long long *arr, int n){
                 count++;
         }
     }
-    return count;
+    return count
 }
