@@ -1,24 +1,32 @@
-class Solution{
-    public:
-    double MedianOfArrays(vector<int>& arr1, vector<int>& arr2)
+class Solution
+{
+public:
+    //Function to sort an array using quick sort algorithm.
+    void quickSort(int arr[], int low, int high)
     {
-        // Your code goes here
-        int n = arr1.size(), m = arr2.size();
-        vector<int>res;
-        for(int i=0;i<n;i++)
+        // code here
+        if (low >= high)
+            return;
+        int p = partition(arr, low, high);
+        quickSort(arr, low, p - 1);
+        quickSort(arr, p + 1, high);
+    }
+
+public:
+    int partition(int arr[], int low, int high)
+    {
+        // Your code here
+        int pivot = arr[high];
+        int pindex = low;
+        for (int i = low; i <= high - 1; i++)
         {
-            res.push_back(arr1[i]);
+            if (arr[i] <= pivot)
+            {
+                swap(arr[i], arr[pindex]);
+                pindex++;
+            }
         }
-        for(int i=0;i<m;i++){
-            res.push_back(arr2[i]);
-        }
-        sort(res.begin(),res.end());
-        int size = res.size();
-        if(size%2!=0)
-            return res[size/2];
-        else
-        {
-            return (res[size/2]+res[size/2-1])/2.00000;
-        }
+        swap(arr[high], arr[pindex]);
+        return pindex;
     }
 };
