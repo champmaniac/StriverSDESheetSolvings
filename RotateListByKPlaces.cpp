@@ -8,10 +8,10 @@ public:
             while(temp->next->next!=NULL){
                 temp=temp->next;
             }
-            ListNode* node= temp->next;
+            ListNode* end= temp->next;
             temp->next=NULL;
-            node->next=head;
-            head=node;
+            end->next=head;
+            head=end;
         }
         return head;
     }
