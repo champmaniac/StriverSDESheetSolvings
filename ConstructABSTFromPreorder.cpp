@@ -12,3 +12,23 @@ public:
         return root;
     }
 };
+
+// Alternate method
+
+Node* construct(int pre[],char preLN[],int n,int &i){
+    if(i>=n) return NULL;
+    Node* root= new Node(pre[i]);
+    if(preLN[i]=='N'){
+        i++;
+        root->left = construct(pre,preLN,n,i);
+        i++;
+        root->right=construct(pre,preLN,n,i);
+    }
+    return root;
+}
+struct Node *constructTree(int n, int pre[], char preLN[])
+{
+    // Code here
+    int i=0;
+    return construct(pre,preLN,n,i);
+}
