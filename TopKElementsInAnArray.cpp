@@ -18,6 +18,6 @@ class Solution {
             res.push_back(v[len-1].second);
             len--;
         }
-        return res;
+        return res
     }
 };
